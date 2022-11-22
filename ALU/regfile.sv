@@ -8,8 +8,8 @@ module regfile#(
     input logic                     clk,
     input logic                     RegWrite, //WE3
     input logic  [D_WIDTH-1:0]      write_data3,  //WD3
-    output logic [D_WIDTH-1:0]      read_data1, //RD1
-    output logic [D_WIDTH-1:0]      read_data2, //RD2
+    output logic [D_WIDTH-1:0]      rd1, //RD1
+    output logic [D_WIDTH-1:0]      rd2, //RD2
     output logic [D_WIDTH-1:0]      a0 // reg10...return value is loaded here so the TB can inspect the state of the CPU (see value of a0)
 
 );
@@ -28,8 +28,8 @@ end
 
 always a0 = mem_array[10];
 always mem_array[0] = 0;
-always read_data1 = rs1;
-always read_data2 = rs2;
+always rd1 = mem_array[rs1];
+always rd2 = mem_array[rs2];
 
 
 endmodule

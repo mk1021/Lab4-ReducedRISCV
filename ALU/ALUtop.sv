@@ -31,7 +31,6 @@ regfile read_data1 (
     .RegWrite(RegWrite),
     .write_data3(ALUout), //or should it be write_data3?
     .a0(a0)
-
 );
 
 //assign ALUop2 = ALUsrc ? ImmOp:regOp2;
