@@ -7,11 +7,8 @@ module ALUtop #(
     input logic [A_WIDTH-1:0]   rd,
     input logic                 clk,
     input logic                 RegWrite,
-    // input logic [D_WIDTH-1:0]   write_data3 - wire
     input logic [D_WIDTH-1:0]   ImmOp,
-    // input logic [D_WIDTH-1:0]   ALUop2
-    input logic [2:0]           ALUctrl, //needed?
-    output logic [D_WIDTH-1:0]  ALUout,
+    input logic [2:0]           ALUctrl,
     output logic                a0
 
 );
@@ -33,9 +30,6 @@ regfile read_data1 (
     .a0(a0)
 );
 
-//assign ALUop2 = ALUsrc ? ImmOp:regOp2;
-//HOW TO SEND regop 2 USE A WIRE OR NOT?????????????????????/
-//CAN I DO THE MULTIPLEXER STATEMENT HERE?
 ALUsrc multiplexer(
     .regOp2(rd2),
     .ImmOp(Immop),
@@ -43,7 +37,7 @@ ALUsrc multiplexer(
 )
 
 ALU alu(
-    .ALUctrl(),
+    .ALUctrl(3b'000),
     .ALUop1(rd1),
     .ALUop2(ALUop2),
     .ALUout(ALUout),
