@@ -6,8 +6,8 @@ module ALU #(
     input logic [DATA_WIDTH-1:0]        ALUop1,
     input logic [DATA_WIDTH-1:0]        ALUop2,
     input logic   [ADDRESS_WIDTH-1:0]   ALUctrl,
-    output logic [DATA_WIDTH-1:9]       ALUout,
-    output logic                            EQ
+    output logic [DATA_WIDTH-1:0]       ALUout,
+    output logic                            EQ 
 );
 
     always_comb begin
