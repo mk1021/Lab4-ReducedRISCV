@@ -1,20 +1,23 @@
-module pc(
-
-    parameter DataSize = 32
-
+module pc#(
+    parameter D_WIDTH = 32
 )(
 
-    input logic        [DataSize -1:0]     ImmOp,
+    input logic        [D_WIDTH-1:0]       ImmOp,
     input logic                            clk,
     input logic                            rst,
     input logic                            PCsrc,
-    output logic       [DataSize -1:0]     PC
+    output logic       [D_WIDTH-1:0]       PC
 );
 
-    logic               [DataSize -1:0]    branch_PC;
-    logic               [DataSize -1:0]    inc_PC;
-    logic               [DataSize -1:0]    next_PC;
-
+    logic               [D_WIDTH-1:0]    branch_PC;
+    logic               [D_WIDTH-1:0]    inc_PC;
+    logic               [D_WIDTH-1:0]    next_PC;
+    
+    
+    always_ff @(posedge clk) begin
+        if (rst) PC <= 0; 
+        else PC <= next_PC;
+    end
     
     
     always_comb begin
@@ -23,12 +26,11 @@ module pc(
         next_PC = PCsrc ? branch_PC : inc_PC; 
     end
 
-    pcreg register(
+    /*pcreg register(
         .clk(clk),
         .rst(rst),
         .next_PC(next_PC),
         .PC(PC)
-    
-    );
+    );*/
     
 endmodule

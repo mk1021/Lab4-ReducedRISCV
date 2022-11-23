@@ -1,5 +1,5 @@
-module ALUmux #(
-    parameter DATA_WIDTH = 32;
+module ALUsrc #(
+    parameter DATA_WIDTH = 32
 
 )(
     input logic [DATA_WIDTH-1:0]        regOp2,

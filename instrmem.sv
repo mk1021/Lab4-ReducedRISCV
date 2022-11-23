@@ -1,4 +1,4 @@
-module rom #(
+module instrmem #(
         parameter   ADDRESS_WIDTH =32,
                     DATA_WIDTH =32
 )(
@@ -7,7 +7,7 @@ module rom #(
     output logic [DATA_WIDTH-1:0] Instr
 );
 
-logic [DATA_WIDTH-1:0]rom_array [2**ADDRESS_WIDTH-1:0];
+logic [DATA_WIDTH-1:0] rom_array [2**ADDRESS_WIDTH-1:0];
 
 initial begin
         $display("Loading rom.");

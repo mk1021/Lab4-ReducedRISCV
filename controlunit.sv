@@ -1,11 +1,15 @@
 module controlunit(
     input  logic [31:0] instr,
-    input  logic EQ,
+    input  logic EQ, // ERROR - signal not used
+    output logic [22:1] dontneed, 
     output logic RegWrite,
-    output logic ALUctrl,
+    output logic [2:0] ALUctrl,
+    output logic ALUsrc,
     output logic ImmSrc, //1
     output logic PCsrc
 );
+
+// 'EQ is not used' - ERROR
 
 always_comb
     begin
@@ -18,6 +22,9 @@ always_comb
         begin
             RegWrite =1; 
         end
+
+        dontneed = {instr[31:15],instr[11:7]}; 
+        // shouldn't actually need this however a warning keeps coming saying bits of the instr instruction are not being used
 
     end 
 endmodule
