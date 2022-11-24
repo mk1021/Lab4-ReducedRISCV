@@ -24,6 +24,6 @@ module ALU #(
         endcase
     end 
 
-    always EQ = ALUop1 == ALUop2;
+    always EQ = ALUop1 == ALUop2; 
 
 endmodule

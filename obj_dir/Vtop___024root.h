@@ -15,6 +15,7 @@ class Vtop___024root final : public VerilatedModule {
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
+    CData/*0:0*/ top__DOT__EQ;
     CData/*0:0*/ top__DOT__RegWrite;
     CData/*0:0*/ top__DOT__ImmSrc;
     CData/*0:0*/ top__DOT__PCsrc;
@@ -26,6 +27,7 @@ class Vtop___024root final : public VerilatedModule {
     IData/*31:0*/ top__DOT__pcreg__DOT__inc_PC;
     IData/*31:0*/ top__DOT__pcreg__DOT__next_PC;
     IData/*31:0*/ top__DOT__ALU__DOT__rd1;
+    IData/*31:0*/ top__DOT__ALU__DOT__rd2;
     VlUnpacked<IData/*31:0*/, 256> top__DOT__instrmem__DOT__rom_array;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__ALU__DOT__read_data1__DOT__mem_array;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;

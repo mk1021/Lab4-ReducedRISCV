@@ -42,11 +42,7 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffe
                                                  & vlSelf->top__DOT__Instr)))),32);
         bufp->chgIData(oldp+1,(vlSelf->top__DOT__PC),32);
         bufp->chgIData(oldp+2,(vlSelf->top__DOT__Instr),32);
-        bufp->chgBit(oldp+3,((vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array
-                              [(0x1fU & (vlSelf->top__DOT__Instr 
-                                         >> 0xfU))] 
-                              == (0x1fU & (vlSelf->top__DOT__Instr 
-                                           >> 0x14U)))));
+        bufp->chgBit(oldp+3,(vlSelf->top__DOT__EQ));
         bufp->chgBit(oldp+4,(vlSelf->top__DOT__RegWrite));
         bufp->chgBit(oldp+5,(vlSelf->top__DOT__ImmSrc));
         bufp->chgBit(oldp+6,(vlSelf->top__DOT__PCsrc));
@@ -56,16 +52,10 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffe
                                          >> 0x14U))),5);
         bufp->chgCData(oldp+9,((0x1fU & (vlSelf->top__DOT__Instr 
                                          >> 7U))),5);
-        bufp->chgIData(oldp+10,(vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array
-                                [(0x1fU & (vlSelf->top__DOT__Instr 
-                                           >> 0xfU))]),32);
-        bufp->chgIData(oldp+11,((0x1fU & (vlSelf->top__DOT__Instr 
-                                          >> 0x14U))),32);
-        bufp->chgIData(oldp+12,((vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array
-                                 [(0x1fU & (vlSelf->top__DOT__Instr 
-                                            >> 0xfU))] 
-                                 + (0x1fU & (vlSelf->top__DOT__Instr 
-                                             >> 0x14U)))),32);
+        bufp->chgIData(oldp+10,(vlSelf->top__DOT__ALU__DOT__rd1),32);
+        bufp->chgIData(oldp+11,(vlSelf->top__DOT__ALU__DOT__rd2),32);
+        bufp->chgIData(oldp+12,((vlSelf->top__DOT__ALU__DOT__rd1 
+                                 + vlSelf->top__DOT__ALU__DOT__rd2)),32);
         bufp->chgIData(oldp+13,(vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array[0]),32);
         bufp->chgIData(oldp+14,(vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array[1]),32);
         bufp->chgIData(oldp+15,(vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array[2]),32);

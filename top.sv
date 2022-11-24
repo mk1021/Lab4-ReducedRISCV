@@ -71,3 +71,7 @@ ALUtop ALU(
 );
 
 endmodule 
+
+
+//potential issues: Not using EQ to branch?
+// doesnt stop counting after 
