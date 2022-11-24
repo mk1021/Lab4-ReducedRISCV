@@ -20,16 +20,14 @@ class Vtop___024root final : public VerilatedModule {
     CData/*0:0*/ top__DOT__PCsrc;
     CData/*0:0*/ __Vclklast__TOP__clk;
     VL_OUT(a0,31,0);
-    VL_OUT(dontneed,22,1);
     IData/*31:0*/ top__DOT__ImmOp;
     IData/*31:0*/ top__DOT__PC;
     IData/*31:0*/ top__DOT__Instr;
-    IData/*31:0*/ top__DOT__ALUout;
     IData/*31:0*/ top__DOT__pcreg__DOT__branch_PC;
     IData/*31:0*/ top__DOT__pcreg__DOT__inc_PC;
     IData/*31:0*/ top__DOT__pcreg__DOT__next_PC;
     IData/*31:0*/ top__DOT__ALU__DOT__rd1;
-    VlUnpacked<IData/*31:0*/, 2> top__DOT__instrmem__DOT__rom_array;
+    VlUnpacked<IData/*31:0*/, 256> top__DOT__instrmem__DOT__rom_array;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__ALU__DOT__read_data1__DOT__mem_array;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
