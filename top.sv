@@ -14,10 +14,11 @@ logic       [WIDTH-1:0]       PC;
 logic       [WIDTH-1:0]       Instr;
 logic                         EQ;
 logic                         RegWrite;
-//logic       [2:0]             ALUctrlCU;
+logic       [2:0]             ALUctrl;
 logic                         ALUsrc;
 logic                         ImmSrc;
 logic                         PCsrc;
+logic EQ;
 //logic       [A_WIDTH-1:0]     rd;
 
 
@@ -58,7 +59,7 @@ signextend SignExt(
 );
 
 ALUtop ALU(
-    .ALUctrl(3'b0),
+    .ALUctrl(ALUctrl),
     .ALUsrc(ALUsrc),
     .clk(clk),
     .ImmOp(ImmOp),

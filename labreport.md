@@ -35,8 +35,7 @@ images in the main branch.)
 
 **NOT OBVIOUS CHANGES**
 
-One thing we thought we needed to do was include " vbdHex(1, (int(top->a0)) & 0xF); " , however soon realised this wasn't a requirement for this task as 
-the vbuddy already has a display screen and this was actually meant for a task similar to lab3. 
+
 
 **THINGS TO DO DIFFERENTLY**
 
