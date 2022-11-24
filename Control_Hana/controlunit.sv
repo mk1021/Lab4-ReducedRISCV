@@ -14,8 +14,12 @@ always_comb
     begin
         RegWrite = 0; ALUctrl = 0; ALUsrc = 1; ImmSrc = 0; PCsrc = 0;
         if (instr[6:0] == 7'b1100011 && instr[14:12] == 3'b1) // branch - bne
-        begin  
-            ImmSrc = 1; PCsrc = 1; 
+        begin 
+            if (EQ) 
+            begin
+                ImmSrc = 1; 
+                PCsrc = 1; 
+            end
         end
         else if (instr[6:0] == 7'h13 && instr[14:12] == 3'b0) // addi 
         begin
@@ -24,3 +28,6 @@ always_comb
     end 
 
 endmodule
+
+//PUT IN EQ CONDITION FOR THE BNE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+//right now it sees its a bne instr and just branches whether or not condition is checked.

@@ -36,7 +36,7 @@ always_comb
     end
 
 always rd1=mem_array[rs1];
-always rd2=rs2;
+always rd2=mem_array[rs2];
 
 assign mem_array[0] = 0;
 assign mem_array[1] = 1;

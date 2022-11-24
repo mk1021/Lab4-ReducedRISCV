@@ -45,6 +45,8 @@ int main(int argc, char **argv, char **env) {
 
         // a0 needs to be outputted
 
+        for()
+
         top->rst = 0;
 
         // if (Verilated::gotFinish()) exit(0);

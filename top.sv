@@ -14,11 +14,10 @@ logic       [WIDTH-1:0]       PC;
 logic       [WIDTH-1:0]       Instr;
 logic                         EQ;
 logic                         RegWrite;
-logic       [2:0]             ALUctrl;
+//logic       [2:0]             ALUctrlCU;
 logic                         ALUsrc;
 logic                         ImmSrc;
 logic                         PCsrc;
-logic EQ;
 //logic       [A_WIDTH-1:0]     rd;
 
 
@@ -59,7 +58,7 @@ signextend SignExt(
 );
 
 ALUtop ALU(
-    .ALUctrl(ALUctrl),
+    .ALUctrl(3'b0),
     .ALUsrc(ALUsrc),
     .clk(clk),
     .ImmOp(ImmOp),
@@ -72,7 +71,3 @@ ALUtop ALU(
 );
 
 endmodule 
-
-
-//potential issues: Not using EQ to branch?
-// doesnt stop counting after 
