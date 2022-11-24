@@ -26,11 +26,5 @@ module pc#(
         next_PC = PCsrc ? branch_PC : inc_PC; 
     end
 
-    /*pcreg register(
-        .clk(clk),
-        .rst(rst),
-        .next_PC(next_PC),
-        .PC(PC)
-    );*/
     
 endmodule

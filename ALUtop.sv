@@ -7,16 +7,13 @@ module ALUtop #(
     input logic [A_WIDTH-1:0]   rd,
     input logic                 clk,
     input logic                 RegWrite,
-    input logic [D_WIDTH-1:0]   write_data3, // ERROR - signal is not used
     input logic [D_WIDTH-1:0]   ImmOp,
-    input logic [2:0]           ALUctrl,  // use ALUctrl somewhere
+    input logic [2:0]           ALUctrl,  
     input logic                 ALUsrc,
     output logic                EQ,
     output logic [D_WIDTH-1:0]  a0
 
 );
-
-//always 3'b0 = ALUctrl;
 
 logic [D_WIDTH-1:0]             rd1 ; // wire connecting RD1 output to ALUop1
 logic [D_WIDTH-1:0]             rd2 ; // wire connecting RD2 output to multiplexer
@@ -32,7 +29,7 @@ regfile read_data1 (
     .rs2(rs2),
     .rd(rd),
     .RegWrite(RegWrite),
-    .write_data3(ALUout), //or should it be write_data3?
+    .write_data3(ALUout),
     .rd2(rd2), 
     .a0(a0)
 );
@@ -51,7 +48,5 @@ ALU alu(
     .Sum(ALUout),
     .EQ(EQ)
 );
-
-// can you define ALUctrl as 3'b0 some other way?
 
 endmodule

@@ -1,9 +1,9 @@
 module instrmem #(
-        parameter   ADDRESS_WIDTH =32,
+        parameter   ADDRESS_WIDTH =8,
                     DATA_WIDTH =32
 )(
 
-    input logic [ADDRESS_WIDTH-1:0] PC,
+    input logic [DATA_WIDTH-1:0] PC,
     output logic [DATA_WIDTH-1:0] Instr
 );
 
@@ -14,6 +14,6 @@ initial begin
         $readmemh("instrmem.mem", rom_array);
 end;
 
-assign Instr = rom_array [PC];
+assign Instr = rom_array [PC>>2]; //32 bit word address, shift the bits by 2 to divide by 4
 
 endmodule 

@@ -27,10 +27,14 @@ always_ff @(posedge clk) begin
 end
 
 //asynchronus read
-always a0 = mem_array[10]; //return value loaded here
-always mem_array[0] = 0;
-always rd1 = mem_array[rs1];
-always rd2 = mem_array[rs2];
+always_comb 
+    begin
+        a0 = mem_array[5'd10]; //return value loaded here
+        //mem_array[0] = 0;
+        rd1 = mem_array[rs1];
+        rd2 = mem_array[rs2];
+    end
 
+assign mem_array[0] = 0;
 
 endmodule

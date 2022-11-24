@@ -4,22 +4,20 @@ module top#(
 )(
     input logic clk,
     input logic rst,
-    output logic [WIDTH-1:0] a0,
-    output logic [22:1] dontneed
-    // shouldn't actually need this however a warning keeps coming saying bits of the instr instruction are not being used
+    output logic [WIDTH-1:0] a0
 );
 
-logic       [WIDTH-1:0]      ImmOp;
+wire        [2:0]            _unused_top;
 
+logic       [WIDTH-1:0]      ImmOp;
 logic       [WIDTH-1:0]       PC;
 logic       [WIDTH-1:0]       Instr;
 logic                         EQ;
 logic                         RegWrite;
-logic       [2:0]             ALUctrlCU;
+//logic       [2:0]             ALUctrlCU;
 logic                         ALUsrc;
 logic                         ImmSrc;
 logic                         PCsrc;
-logic       [WIDTH-1:0]       ALUout; // ERROR - signal is not driven?
 //logic       [A_WIDTH-1:0]     rd;
 
 
@@ -31,12 +29,12 @@ pc pcreg(
     .PC(PC)
 );
 
-pcreg register(
-        .clk(clk),
-        .rst(rst),
-        .next_PC(PC),
-        .PC(PC)
-);
+// pcreg register(
+//         .clk(clk),
+//         .rst(rst),
+//         .next_PC(PC),
+//         .PC(PC)
+// );
 
 instrmem instrmem(
     .PC(PC),
@@ -47,12 +45,10 @@ controlunit CU(
     .instr(Instr),
     .EQ(EQ),
     .RegWrite(RegWrite),
-    .ALUctrl(ALUctrlCU),
+    .ALUctrl(_unused_top),
     .ALUsrc(ALUsrc),
     .ImmSrc(ImmSrc),
-    .PCsrc(PCsrc),
-    .dontneed(dontneed)
-    // shouldn't actually need this however a warning keeps coming saying bits of the instr instruction are not being used
+    .PCsrc(PCsrc)
 );
 
 signextend SignExt(
@@ -62,8 +58,7 @@ signextend SignExt(
 );
 
 ALUtop ALU(
-    .ALUctrl(ALUctrlCU),
-    .write_data3(ALUout),
+    .ALUctrl(3'b0),
     .ALUsrc(ALUsrc),
     .clk(clk),
     .ImmOp(ImmOp),
