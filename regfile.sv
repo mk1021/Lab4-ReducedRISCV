@@ -22,7 +22,7 @@ logic [D_WIDTH-1:0] mem_array [2**A_WIDTH-1:0];  //CHECK??????????????????? (32x
 //synchronus write
 always_ff @(posedge clk) begin 
 
-    if (RegWrite == 1'b1)
+    if (RegWrite)
         mem_array[rd] <= write_data3;
 end
 
@@ -31,10 +31,14 @@ always_comb
     begin
         a0 = mem_array[5'd10]; //return value loaded here
         //mem_array[0] = 0;
-        rd1 = mem_array[rs1];
-        rd2 = mem_array[rs2];
+        //rd1 = mem_array[rs1];
+        //rd2 = mem_array[rs2];
     end
 
+always rd1=mem_array[rs1];
+always rd2=rs2;
+
 assign mem_array[0] = 0;
+assign mem_array[1] = 1;
 
 endmodule

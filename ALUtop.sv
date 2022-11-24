@@ -38,13 +38,13 @@ ALUsrc src(
     .regOp2(rd2),
     .ALUsrc(ALUsrc),
     .ImmOp(ImmOp),
-    .ALUop2(ALUop2)
+    .ALUop2(ALUop2) // ALUop2
 );
 
 ALU alu(
     .ALUctrl(ALUctrl),
     .ALUop1(rd1),
-    .ALUop2(ALUop2),
+    .ALUop2(ALUop2), // ALUop2
     .Sum(ALUout),
     .EQ(EQ)
 );

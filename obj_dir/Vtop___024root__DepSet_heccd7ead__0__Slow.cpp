@@ -12,6 +12,7 @@ VL_ATTR_COLD void Vtop___024root___settle__TOP__0(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___settle__TOP__0\n"); );
     // Body
     vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array[0U] = 0U;
+    vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array[1U] = 1U;
     vlSelf->a0 = vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array
         [0xaU];
 }
@@ -47,30 +48,35 @@ VL_ATTR_COLD void Vtop___024root___settle__TOP__1(Vtop___024root* vlSelf) {
     }
     vlSelf->top__DOT__ALU__DOT__rd1 = vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array
         [(0x1fU & (vlSelf->top__DOT__Instr >> 0xfU))];
-    vlSelf->top__DOT__PCsrc = 0U;
     vlSelf->top__DOT__ImmSrc = 0U;
+    vlSelf->top__DOT__PCsrc = 0U;
     if ((IData)((0x1063U == (0x707fU & vlSelf->top__DOT__Instr)))) {
-        vlSelf->top__DOT__PCsrc = 1U;
         vlSelf->top__DOT__ImmSrc = 1U;
+        vlSelf->top__DOT__PCsrc = 1U;
     }
-    vlSelf->top__DOT__ImmOp = ((IData)(vlSelf->top__DOT__ImmSrc)
-                                ? (((- (IData)((vlSelf->top__DOT__Instr 
-                                                >> 0x1fU))) 
-                                    << 0xcU) | ((0x800U 
-                                                 & (vlSelf->top__DOT__Instr 
-                                                    << 4U)) 
-                                                | ((0x7e0U 
-                                                    & (vlSelf->top__DOT__Instr 
-                                                       >> 0x14U)) 
-                                                   | (0x1eU 
-                                                      & (vlSelf->top__DOT__Instr 
-                                                         >> 7U)))))
-                                : (((- (IData)((vlSelf->top__DOT__Instr 
-                                                >> 0x1fU))) 
-                                    << 0xcU) | (0xfffU 
-                                                & vlSelf->top__DOT__Instr)));
     vlSelf->top__DOT__pcreg__DOT__branch_PC = (vlSelf->top__DOT__PC 
-                                               + vlSelf->top__DOT__ImmOp);
+                                               + ((IData)(vlSelf->top__DOT__ImmSrc)
+                                                   ? 
+                                                  (((- (IData)(
+                                                               (vlSelf->top__DOT__Instr 
+                                                                >> 0x1fU))) 
+                                                    << 0xcU) 
+                                                   | ((0x800U 
+                                                       & (vlSelf->top__DOT__Instr 
+                                                          << 4U)) 
+                                                      | ((0x7e0U 
+                                                          & (vlSelf->top__DOT__Instr 
+                                                             >> 0x14U)) 
+                                                         | (0x1eU 
+                                                            & (vlSelf->top__DOT__Instr 
+                                                               >> 7U)))))
+                                                   : 
+                                                  (((- (IData)(
+                                                               (vlSelf->top__DOT__Instr 
+                                                                >> 0x1fU))) 
+                                                    << 0xcU) 
+                                                   | (0xfffU 
+                                                      & vlSelf->top__DOT__Instr))));
     vlSelf->top__DOT__pcreg__DOT__inc_PC = ((IData)(4U) 
                                             + vlSelf->top__DOT__PC);
     vlSelf->top__DOT__pcreg__DOT__next_PC = ((IData)(vlSelf->top__DOT__PCsrc)
@@ -112,7 +118,6 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->rst = VL_RAND_RESET_I(1);
     vlSelf->a0 = VL_RAND_RESET_I(32);
-    vlSelf->top__DOT__ImmOp = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__PC = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__Instr = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__RegWrite = VL_RAND_RESET_I(1);
