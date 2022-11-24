@@ -7,7 +7,7 @@ module top#(
     output logic [WIDTH-1:0] a0
 );
 
-//wire        [2:0]            _unused_top;
+wire        [2:0]            _unused_top;
 
 logic       [WIDTH-1:0]      ImmOp;
 logic       [WIDTH-1:0]       PC;

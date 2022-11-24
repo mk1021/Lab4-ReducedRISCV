@@ -4,7 +4,7 @@ module signextend(
   output reg [31:0] ImmOp
 );
 
-//wire [12:0] _unused_ok = instr[24:12];
+wire [12:0] _unused_ok = instr[24:12];
 
 always_comb 
   case 
