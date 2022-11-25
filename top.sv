@@ -62,7 +62,7 @@ regfile read_data1 (
     .rd1(rd1),
     .rs1(rs1),
     .rs2(rs2),
-    //.rd(rd2),
+    .rd(rd2),
     .RegWrite(RegWrite),
     .write_data3(ReadData),
     .rd2(rd2), 
