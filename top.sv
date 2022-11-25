@@ -14,8 +14,10 @@ logic       [WIDTH-1:0]         PC;
 logic       [WIDTH-1:0]         Instr;
 logic                           EQ;
 logic                           RegWrite;
-//logic       [2:0]             ALUctrlCU;
+logic       [2:0]             ALUctrlCU;
 logic                           ALUsrc;
+logic                           sum;
+logic                           ALUout;
 logic                           ImmSrc;
 logic                           PCsrc;
 //logic       [A_WIDTH-1:0]     rd;
@@ -39,9 +41,9 @@ instrmem instrmem(
     .Instr(Instr)
 );
 
-assign rs1 = InstructionWire[19:15];
-assign rs2 = InstructionWire[24:20];
-assign Instr = InstructionWire[11:7];
+assign rd1 = Instr[19:15];
+assign rd2 = Instr[24:20];
+assign Instr = Instr[11:7];
 
 controlunit CU(
     .instr(Instr),
@@ -60,7 +62,7 @@ regfile read_data1 (
     .rd1(rd1),
     .rs1(rs1),
     .rs2(rs2),
-    .rd(rd),
+    //.rd(rd2),
     .RegWrite(RegWrite),
     .write_data3(ReadData),
     .rd2(rd2), 
@@ -88,7 +90,7 @@ ALUsrc src(
 );
 
 ALU alu(
-    .ALUctrl(ALUctrl),
+    .ALUctrlCU(ALUctrlCU),
     .ALUop1(rd1),
     .ALUop2(ALUop2), // ALUop2
     .Sum(ALUout),
