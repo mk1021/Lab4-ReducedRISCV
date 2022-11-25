@@ -9,12 +9,12 @@ module top#(
 
 wire        [2:0]            _unused_top;
 
-logic       [WIDTH-1:0]      ImmOp;
+logic       [WIDTH-1:0]       ImmOp;
 logic       [WIDTH-1:0]       PC;
 logic       [WIDTH-1:0]       Instr;
 logic                         EQ;
 logic                         RegWrite;
-//logic       [2:0]             ALUctrlCU;
+//logic       [2:0]           ALUctrlCU;
 logic                         ALUsrc;
 logic                         ImmSrc;
 logic                         PCsrc;
