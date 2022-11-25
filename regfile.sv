@@ -28,16 +28,20 @@ end
 //asynchronus read
 always_comb 
     begin
-        a0 = mem_array[5'd10]; //return value loaded here
+        a0 = mem_array[5'd8]; //return value loaded here
         //mem_array[0] = 0;
         //rd1 = mem_array[rs1];
         //rd2 = mem_array[rs2];
     end
 
+
 always rd1=mem_array[rs1];
-always rd2=mem_array[rs2];
+always rd2=rs2;
 
 assign mem_array[0] = 0;
 // assign mem_array[1] = 1;
+
+//if opcode = lw instr:
+//rd = address of register 
 
 endmodule
