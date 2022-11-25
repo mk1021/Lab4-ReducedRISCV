@@ -39,6 +39,10 @@ instrmem instrmem(
     .Instr(Instr)
 );
 
+assign rs1 = InstructionWire[19:15];
+assign rs2 = InstructionWire[24:20];
+assign Instr = InstructionWire[11:7];
+
 controlunit CU(
     .instr(Instr),
     .EQ(EQ),
@@ -48,19 +52,6 @@ controlunit CU(
     .ImmSrc(ImmSrc),
     .PCsrc(PCsrc),
     .MemWrite(MemWrite)
-);
-
-signextend SignExt(
-    .instr(Instr),
-    .ImmOp(ImmOp),
-    .ImmSrc(ImmSrc)
-);
-
-datamem DataMem(
-    .a(ALUresult),
-    .ReadData(ReadData),
-    .we(MemWrite),
-    .wd(rd2)
 );
 
 regfile read_data1 (
@@ -75,6 +66,19 @@ regfile read_data1 (
     .rd2(rd2), 
     .a0(a0)
 );
+
+signextend SignExt(
+    .instr(Instr),
+    .ImmOp(ImmOp),
+    .ImmSrc(ImmSrc)
+);
+
+/*datamem DataMem(
+    .a(ALUresult),
+    .ReadData(ReadData),
+    .we(MemWrite),
+    .wd(rd2)
+);*/
 
 ALUsrc src(
     .regOp2(rd2),
