@@ -1,10 +1,10 @@
 module instrmem #(
         parameter   ADDRESS_WIDTH =20,
-                    DATA_WIDTH =8
+                    DATA_WIDTH =32
 )(
 
-    input logic [ADDRESS_WIDTH-1:0] PC,
-    output logic [4*DATA_WIDTH-1:0] Instr
+    input logic [31:0] PC,
+    output logic [DATA_WIDTH-1:0] Instr
 );
 
 logic [DATA_WIDTH-1:0] rom_array [2**ADDRESS_WIDTH-1:0];

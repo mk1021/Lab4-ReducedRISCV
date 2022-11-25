@@ -45,7 +45,7 @@ int main(int argc, char **argv, char **env) {
 
         // a0 needs to be outputted
 
-        for()
+        // for()
 
         top->rst = 0;
 
