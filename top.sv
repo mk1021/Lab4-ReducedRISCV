@@ -41,8 +41,8 @@ instrmem instrmem(
     .Instr(Instr)
 );
 
-assign rd1 = Instr[19:15];
-assign rd2 = Instr[24:20];
+//assign rd1 = Instr[19:15];
+//assign rd2 = Instr[24:20];
 assign Instr = Instr[11:7];
 
 controlunit CU(
