@@ -16,6 +16,6 @@ end
 
 always_comb begin
     //output is asynchronous
-    rd = {{rom_array[PC]},{rom_array[PC+1]},{rom_array[PC+2]},{rom_array[PC+3]}};
+    Instr = {{rom_array[PC]},{rom_array[PC+1]},{rom_array[PC+2]},{rom_array[PC+3]}};
 end
 endmodule 
