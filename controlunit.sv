@@ -30,4 +30,4 @@ always_comb
 endmodule
 
 //PUT IN EQ CONDITION FOR THE BNE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
-//right now it sees its a bne instr and just branches whether or not condition is checked.
+//right now it sees its a bne instr and just branches whether or not condition is chgit config ecked.
