@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -eu
-
+#ls /dev/tty.u*
 # cleanup
 rm -rf obj_dir
 rm -f top.vcd
