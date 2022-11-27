@@ -17,6 +17,7 @@ always_comb
         RegWrite = 0; ALUctrl = 0; ALUsrc = 1; ImmSrc = 0; PCsrc = 0; MemWrite = 0; ResultSrc = 0;//default bne
         if (instr[6:0] == 7'b1100011 && instr[14:12] == 3'b1) // branch - bne but inputs are equal
         begin 
+            ResultSrc = 0;
             ImmSrc = 1; 
             ALUsrc = 0;
             if (!EQ) 
@@ -28,13 +29,13 @@ always_comb
         else if (instr[6:0] == 7'b0000011)
         begin 
             // load word instruction
-            MemWrite = 1;
+            RegWrite = 1;
             ResultSrc = 1;
         end
 
         else if (instr[6:0] == 7'h13 && instr[14:12] == 3'b0) // addi 
         begin
-            RegWrite =1; 
+            RegWrite = 1; 
             ImmSrc = 0;
             PCsrc = 0;
         end

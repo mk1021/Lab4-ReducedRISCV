@@ -21,6 +21,7 @@ module pc#(
     
     
     always_comb begin
+        $display("\n\n\nPC: ", PC);
         branch_PC = PC + ImmOp;
         inc_PC = PC + 4;
         next_PC = PCsrc ? branch_PC : inc_PC; 

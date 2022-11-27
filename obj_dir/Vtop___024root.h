@@ -20,7 +20,6 @@ class Vtop___024root final : public VerilatedModule {
     CData/*0:0*/ top__DOT__ALUsrc;
     CData/*0:0*/ top__DOT__ImmSrc;
     CData/*0:0*/ top__DOT__PCsrc;
-    CData/*0:0*/ top__DOT__MemWrite;
     CData/*0:0*/ __Vclklast__TOP__clk;
     VL_OUT(a0,31,0);
     IData/*31:0*/ top__DOT__ImmOp;
