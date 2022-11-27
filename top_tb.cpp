@@ -18,11 +18,11 @@ int main(int argc, char **argv, char **env) {
     tfp->open ("top.vcd");
 
     //init Vbuddy
-//    if (vbdOpen() !=1) return(-1);
-//    vbdHeader("LAB4");
+    if (vbdOpen() !=1) return(-1);
+    vbdHeader("LAB4");
 
-    top->clk = 1;
-    top->rst = 1;
+    top->clk = 0;
+    top->rst = 0;
 
     
     for (i=0; i<1000; i++) {
@@ -33,12 +33,12 @@ int main(int argc, char **argv, char **env) {
             top->eval ();
         }
 
-        std::cout << top->a0 << std::endl;
+        //std::cout << top->a0 << std::endl;
         
-        // vbdHex(4, (int(top->a0) >>16) & 0xF);
-        // vbdHex(3, (int(top->a0) >>8) & 0xF);
-        // vbdHex(2, (int(top->a0) >>4) & 0xF);
-        // vbdHex(1, int(top->a0) & 0xF);
+        vbdHex(4, (int(top->a0) >>12) & 0xF);
+        vbdHex(3, (int(top->a0) >>8) & 0xF);
+        vbdHex(2, (int(top->a0) >>4) & 0xF);
+        vbdHex(1, int(top->a0) & 0xF);
         // vbdCycle(i+1);
         
         //vbdPlot(int(top->count), 0, 255);
