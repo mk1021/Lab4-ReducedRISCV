@@ -7,14 +7,14 @@ module top#(
     output logic [WIDTH-1:0] a0
 );
 
-wire        [2:0]            _unused_top;
+logic        [2:0]            _unused_top;
 
-logic       [WIDTH-1:0]      ImmOp;
+logic       [WIDTH-1:0]       ImmOp;
 logic       [WIDTH-1:0]       PC;
 logic       [WIDTH-1:0]       Instr;
 logic                         EQ;
 logic                         RegWrite;
-//logic       [2:0]             ALUctrlCU;
+//logic       [2:0]           ALUctrlCU;
 logic                         ALUsrc;
 logic                         ImmSrc;
 logic                         PCsrc;
@@ -29,12 +29,6 @@ pc pcreg(
     .PC(PC)
 );
 
-// pcreg register(
-//         .clk(clk),
-//         .rst(rst),
-//         .next_PC(PC),
-//         .PC(PC)
-// );
 
 instrmem instrmem(
     .PC(PC),
