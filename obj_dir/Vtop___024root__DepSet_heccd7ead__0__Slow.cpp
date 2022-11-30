@@ -48,7 +48,7 @@ VL_ATTR_COLD void Vtop___024root___settle__TOP__1(Vtop___024root* vlSelf) {
     vlSelf->top__DOT__ALU__DOT__rd1 = vlSelf->top__DOT__ALU__DOT__read_data1__DOT__mem_array
         [(0x1fU & (vlSelf->top__DOT__Instr >> 0xfU))];
     vlSelf->top__DOT__ALUsrc = 1U;
-    vlSelf->top__DOT__ImmSrc = 0U;
+    vlSelf->top__DOT__ImmSrc = 1U;
     if ((IData)((0x1063U == (0x707fU & vlSelf->top__DOT__Instr)))) {
         vlSelf->top__DOT__ALUsrc = 0U;
         vlSelf->top__DOT__ImmSrc = 1U;

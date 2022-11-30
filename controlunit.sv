@@ -12,7 +12,7 @@ wire [21:0] _unused = {instr[31:15], instr[11:7]};
 
 always_comb
     begin
-        RegWrite = 0; ALUctrl = 0; ALUsrc = 1; ImmSrc = 0; PCsrc = 0; //default bne
+        RegWrite = 0; ALUctrl = 0; ALUsrc = 1; ImmSrc = 1; PCsrc = 0; //default bne
         if (instr[6:0] == 7'b1100011 && instr[14:12] == 3'b1) // branch - bne but inputs are equal
         begin 
             ImmSrc = 1; 
